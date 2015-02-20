@@ -1,0 +1,10 @@
+module GameFrame
+ApplicationWindow 1.0 ApplicationWindow.qml
+Boundaries 1.0 Boundaries.qml
+DebugDraw 1.0 DebugDraw.qml
+DynamicBody 1.0 DynamicBody.qml
+Game 1.0 Game.qml
+KinematicBody 1.0 KinematicBody.qml
+Scene 1.0 Scene.qml
+StaticBody 1.0 StaticBody.qml
+World 1.0 World.qml
