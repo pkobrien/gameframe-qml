@@ -7,7 +7,7 @@ Item {
     property string domain
     property string name
     property string organization: name
-    property string status
+    property string statusText
     property string version: "0.0.0"
 //    property int updatesPerSecond: 30
 

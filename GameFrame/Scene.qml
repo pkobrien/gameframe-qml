@@ -6,7 +6,7 @@ Item {
     id: scene
 
     property bool active: false
-    property string status
+    property string statusText
     property var world
     property var _debugDraw
 
