@@ -6,16 +6,14 @@ MenuBar {
 
     Menu {
         title: "&File"
-        MenuItem {
-            text: "E&xit"
-            shortcut: StandardKey.Quit
-            onTriggered: Qt.quit()
-        }
+        MenuItem { action: actions.appQuitAction }
     }
 
     Menu {
-        title: "&Debug"
+        title: "&World"
         MenuItem { action: actions.worldDebugAction }
+        MenuItem { action: actions.worldRunningAction }
+        MenuItem { action: actions.worldSingleStepAction }
     }
 
 //    Menu {

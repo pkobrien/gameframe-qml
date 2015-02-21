@@ -8,9 +8,9 @@ import "../Testbed" as App
 GF.ApplicationWindow {
     id: appWindow
 
-    property var scene
+    property var activeScene
     property string statusText
-    property var world: scene ? scene.world : null
+    property var world: activeScene ? activeScene.world : null
 
     width: 800
     height: 600
@@ -25,19 +25,40 @@ GF.ApplicationWindow {
 
     menuBar: App.MenuBar { }
 
-    Item {
-        id: keyHandler
-        focus: true
-        Keys.onEnterPressed: { if (world) world.running = !world.running; }
-//        Keys.onSpacePressed: { if (world) world.debug = !world.debug; }
-    }
+    toolBar: App.ToolBar { }
 
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        hoverEnabled: true
+//    Item {
+//        id: keyHandler
+//        focus: true
+//        Keys.onEnterPressed: { if (world) world.running = !world.running; }
+//        Keys.onSpacePressed: { if (world) world.debug = !world.debug; }
+//    }
+
+//    MouseArea {
+//        id: mouseArea
+//        anchors.fill: parent
+//        hoverEnabled: true
 //        onClicked:
 //        onPositionChanged:
+//    }
+
+//    Item {
+//        id: item
+
+//        ScrollView {
+//            id: scrollView
+
+//            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOn
+//            verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
+
+//        }
+//    }
+
+    Component {
+        id: emptySceneComp
+        GF.Scene {
+            world: GF.World { }
+        }
     }
 
     Loader {
@@ -45,9 +66,11 @@ GF.ApplicationWindow {
         anchors.fill: parent
         focus: false
         source: "./examples/fixtures/Scene.qml"
+//        sourceComponent: emptySceneComp
         onLoaded: {
-            scene = item;
-            scene.active = true;
+            activeScene = item;
+//            scene.parent = scrollView;
+            activeScene.active = true;
         }
     }
 

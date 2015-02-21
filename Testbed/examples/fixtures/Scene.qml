@@ -7,8 +7,32 @@ GF.Scene {
     world: GF.World { }
 
     Rectangle {
+        id: background
         anchors.fill: parent
         color: "Red"
+        visible: !world.debug
+    }
+
+    GF.Boundaries { }
+
+    Component {
+        id: ballComp
+        Ball { }
+    }
+
+    Timer {
+        id: ballsTimer
+        property int count: 0
+        interval: 200
+        running: world.running
+        repeat: true
+        onTriggered: {
+            var ball = ballComp.createObject(scene);
+            ball.x = 40 + (Math.random() * scene.width - 80);
+            ball.y = 10;
+            count++;
+            if (count === 50) running = false;
+        }
     }
 }
 
