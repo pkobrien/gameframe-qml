@@ -54,27 +54,9 @@ GF.ApplicationWindow {
 //        }
 //    }
 
-    Component {
-        id: emptySceneComp
-        GF.Scene {
-            world: GF.World { }
-        }
-    }
-
-    Loader {
-        id: sceneLoader
-        anchors.fill: parent
-        focus: false
-        source: "./examples/fixtures/Scene.qml"
-//        sourceComponent: emptySceneComp
-        onLoaded: {
-            activeScene = item;
-//            scene.parent = scrollView;
-            activeScene.active = true;
-        }
-    }
-
     App.Actions { id: actions }
+
+    App.SceneLoader { id: sceneLoader }
 
     statusBar: StatusBar {
         width: appWindow.width

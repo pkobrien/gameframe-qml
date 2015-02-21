@@ -10,11 +10,18 @@ QtObject {
         onTriggered: Qt.quit();
     }
 
+    property Action sceneReloadAction: Action {
+        enabled: (sceneLoader.source.toString() !== "")
+        text: qsTr("Reload scene")
+        tooltip: qsTr("Reload the current scene")
+        onTriggered: sceneLoader.reloadSource();
+    }
+
     property Action worldDebugAction: Action {
         checkable: true
         checked: (world && world.debug)
         enabled: (world)
-        text: checked ? qsTr("Leave Debug Mode") : qsTr("Enter Debug Mode")
+        text: checked ? qsTr("Hide debug visuals") : qsTr("Display debug visuals")
         tooltip: text + qsTr(" for the Box2D physics world")
         onTriggered: world.debug = !world.debug;
     }
@@ -23,14 +30,14 @@ QtObject {
         checkable: true
         checked: (world && world.running)
         enabled: (world)
-        text: checked ? qsTr("Pause World") : qsTr("Start World")
+        text: checked ? qsTr("Pause world") : qsTr("Start world")
         tooltip: text + qsTr(" for the Box2D physics world")
         onTriggered: world.running = !world.running;
     }
 
     property Action worldSingleStepAction: Action {
         enabled: (world)
-        text: qsTr("Single Step")
+        text: qsTr("Single step")
         tooltip: qsTr("Run a single step of the Box2D physics world")
         onTriggered: { world.running = false; world.step(); }
     }
@@ -38,6 +45,7 @@ QtObject {
     Component.onCompleted: {
         // Keep all the shortcut assignments here simply to group them together for clarity.
         appQuitAction.shortcut = StandardKey.Quit
+        sceneReloadAction.shortcut = "Ctrl+S"
         worldDebugAction.shortcut = "Escape"
         worldRunningAction.shortcut = "Enter"
         worldSingleStepAction.shortcut = "Space"
