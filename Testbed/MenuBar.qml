@@ -5,8 +5,6 @@ import "../Testbed" as App
 MenuBar {
     id: menuBar
 
-    property var actions: App.Actions { }
-
     Menu {
         title: "&File"
         MenuItem { action: actions.appQuitAction }

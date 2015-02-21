@@ -6,8 +6,6 @@ import "../Testbed" as App
 ToolBar {
     id: toolbar
 
-    property var actions: App.Actions { }
-
     height: 40
     RowLayout {
         anchors.fill: parent

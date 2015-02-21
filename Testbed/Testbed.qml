@@ -9,6 +9,7 @@ GF.ApplicationWindow {
     id: appWindow
 
     property var activeScene
+    property alias sceneLoader: stage.sceneLoader
     property string statusText
     property var world: activeScene ? activeScene.world : null
 
@@ -27,36 +28,9 @@ GF.ApplicationWindow {
 
     toolBar: App.ToolBar { }
 
-//    Item {
-//        id: keyHandler
-//        focus: true
-//        Keys.onEnterPressed: { if (world) world.running = !world.running; }
-//        Keys.onSpacePressed: { if (world) world.debug = !world.debug; }
-//    }
-
-//    MouseArea {
-//        id: mouseArea
-//        anchors.fill: parent
-//        hoverEnabled: true
-//        onClicked:
-//        onPositionChanged:
-//    }
-
-//    Item {
-//        id: item
-
-//        ScrollView {
-//            id: scrollView
-
-//            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOn
-//            verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
-
-//        }
-//    }
-
     App.Actions { id: actions }
 
-    App.SceneLoader { id: sceneLoader }
+    App.Stage { id: stage }
 
     statusBar: StatusBar {
         width: appWindow.width

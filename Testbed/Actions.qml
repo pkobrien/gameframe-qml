@@ -11,7 +11,7 @@ QtObject {
     }
 
     property Action sceneReloadAction: Action {
-        enabled: (sceneLoader.source.toString() !== "")
+        enabled: (sceneLoader && sceneLoader.source.toString() !== "")
         text: qsTr("Reload scene")
         tooltip: qsTr("Reload the current scene")
         onTriggered: sceneLoader.reloadSource();
