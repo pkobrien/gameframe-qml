@@ -1,5 +1,4 @@
 import QtQuick 2.4
-//import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 // There is currently a bug in QML when the Actions.qml file is a singleton
@@ -7,6 +6,7 @@ import "." 1.0 as App
 
 Item {
     id: keyHandler
+
     focus: true
 
     // "Enter" for worldRunningAction.

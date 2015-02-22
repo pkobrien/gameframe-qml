@@ -18,12 +18,4 @@ MenuBar {
         MenuSeparator { }
         MenuItem { action: App.Actions.sceneReloadAction }
     }
-
-//    Menu {
-//        title: "&Help"
-//        MenuItem {
-//            text: "About..."
-//            onTriggered: aboutDialog.open()
-//        }
-//    }
 }

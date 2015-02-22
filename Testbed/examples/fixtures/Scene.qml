@@ -4,6 +4,9 @@ import GameFrame 1.0 as GF
 GF.Scene {
     id: scene
 
+    width: 200
+    height: 200
+
     world: GF.World { }
 
     Rectangle {

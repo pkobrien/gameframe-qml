@@ -17,10 +17,10 @@ QtObject {
     }
 
     property Action sceneReloadAction: Action {
-        enabled: (sceneLoader && sceneLoader.source.toString() !== "")
+        enabled: (sceneLoader)
         text: qsTr("Reload scene")
         tooltip: qsTr("Reload the current scene")
-        onTriggered: sceneLoader.reloadSource();
+        onTriggered: sceneLoader.reload();
     }
 
     property Action worldDebugAction: Action {
