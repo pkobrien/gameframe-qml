@@ -6,15 +6,13 @@ import "." 1.0 as App
 ToolBar {
     id: toolbar
 
-    property var actions: App.Active.actions
-
     height: 40
     RowLayout {
         anchors.fill: parent
-        ToolButton { action: actions.worldDebugAction }
-        ToolButton { action: actions.worldRunningAction }
-        ToolButton { action: actions.worldSingleStepAction }
+        ToolButton { action: App.Actions.worldDebugAction }
+        ToolButton { action: App.Actions.worldRunningAction }
+        ToolButton { action: App.Actions.worldSingleStepAction }
         Item { Layout.fillWidth: true }
-        ToolButton { action: actions.sceneReloadAction }
+        ToolButton { action: App.Actions.sceneReloadAction }
     }
 }

@@ -5,20 +5,18 @@ import "." 1.0 as App
 MenuBar {
     id: menuBar
 
-    property var actions: App.Active.actions
-
     Menu {
         title: "&File"
-        MenuItem { action: actions.appQuitAction }
+        MenuItem { action: App.Actions.appQuitAction }
     }
 
     Menu {
         title: "&World"
-        MenuItem { action: actions.worldDebugAction }
-        MenuItem { action: actions.worldRunningAction }
-        MenuItem { action: actions.worldSingleStepAction }
+        MenuItem { action: App.Actions.worldDebugAction }
+        MenuItem { action: App.Actions.worldRunningAction }
+        MenuItem { action: App.Actions.worldSingleStepAction }
         MenuSeparator { }
-        MenuItem { action: actions.sceneReloadAction }
+        MenuItem { action: App.Actions.sceneReloadAction }
     }
 
 //    Menu {

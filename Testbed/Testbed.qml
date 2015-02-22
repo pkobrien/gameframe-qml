@@ -16,11 +16,9 @@ ApplicationWindow {
 
     toolBar: App.ToolBar { }
 
-    App.Actions { id: _actions }
+    App.KeyHandler { }
 
     App.Stage { }
 
     statusBar: App.StatusBar { }
-
-    Component.onCompleted: App.Active.actions = _actions;
 }

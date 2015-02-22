@@ -1,3 +1,5 @@
+pragma Singleton
+
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 import "." 1.0 as App
@@ -48,10 +50,12 @@ QtObject {
 
     Component.onCompleted: {
         // Keep all the shortcut assignments here simply to group them together for clarity.
-        appQuitAction.shortcut = StandardKey.Quit
-        sceneReloadAction.shortcut = "Ctrl+S"
+        appQuitAction.shortcut = "Ctrl+Q"
+        sceneReloadAction.shortcut = "Ctrl+R"
         worldDebugAction.shortcut = "Escape"
         worldRunningAction.shortcut = "Enter"
         worldSingleStepAction.shortcut = "Space"
+        // There is currently a bug in QML when this file is a singleton whereby the shortcuts
+        // no longer work. Therefore the key handling is also defined in the KeyHandler.qml file.
     }
 }
