@@ -2,13 +2,10 @@ import QtQuick 2.4
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2
-import GameFrame 1.0 as GF
-import "../Testbed" as App
+import "." 1.0 as App
 
 Item {
     id: stage
-
-    property alias sceneLoader: sceneLoader
 
     width: 800
     height: 600
@@ -39,6 +36,8 @@ Item {
             }
         }
     }
+
+    Component.onCompleted: App.Active.sceneLoader = sceneLoader
 
 //    Item {
 //        id: keyHandler

@@ -1,8 +1,12 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import "." 1.0 as App
 
 QtObject {
     id: actions
+
+    property var sceneLoader: App.Active.sceneLoader
+    property var world: App.Active.world
 
     property Action appQuitAction: Action {
         text: qsTr("E&xit")

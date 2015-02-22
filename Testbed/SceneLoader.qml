@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import GameFrame 1.0 as GF
+import "." 1.0 as App
 
 Loader {
     id: sceneLoader
@@ -15,8 +16,8 @@ Loader {
     source: "./examples/fixtures/Scene.qml"
 //    sourceComponent: emptySceneComp
     onLoaded: {
-        activeScene = item;
-        activeScene.active = true;
+        App.Active.scene = item;
+        App.Active.scene.active = true;
     }
 
     Component {

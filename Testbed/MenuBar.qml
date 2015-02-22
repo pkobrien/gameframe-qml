@@ -1,9 +1,11 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
-import "../Testbed" as App
+import "." 1.0 as App
 
 MenuBar {
     id: menuBar
+
+    property var actions: App.Active.actions
 
     Menu {
         title: "&File"
