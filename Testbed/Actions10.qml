@@ -48,6 +48,25 @@ QtObject {
         onTriggered: { world.running = false; world.step(); }
     }
 
+    function keyPressed(event, source) {
+        if (event.matches(StandardKey.Quit) ||
+                (event.key === Qt.Key_Q && event.modifiers === Qt.ControlModifier)) {
+            appQuitAction.trigger(source);
+        } else if (event.key === Qt.Key_R && event.modifiers === Qt.ControlModifier) {
+            sceneReloadAction.trigger(source);
+        } else if (event.key === Qt.Key_Escape) {
+            worldDebugAction.trigger(source);
+        } else if (event.key === Qt.Key_Enter) {
+            worldRunningAction.trigger(source);
+        } else if (event.key === Qt.Key_Space) {
+            worldSingleStepAction.trigger(source);
+        } else {
+            event.accepted = false;
+            return;
+        }
+        event.accepted = true;
+    }
+
     Component.onCompleted: {
         // Keep all the shortcut assignments here simply to group them together for clarity.
         appQuitAction.shortcut = "Ctrl+Q"

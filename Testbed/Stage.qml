@@ -30,4 +30,6 @@ SplitView {
     }
 
     Component.onCompleted: sceneTabView.currentIndexChanged();
+
+    Keys.onPressed: App.Actions.keyPressed(event, stage)
 }

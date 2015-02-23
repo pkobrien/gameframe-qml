@@ -29,6 +29,7 @@ Tab {
 
     Item {
         anchors.fill: parent
+
         property var view
     }
 

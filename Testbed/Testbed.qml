@@ -16,9 +16,12 @@ ApplicationWindow {
 
     toolBar: App.ToolBar { }
 
-    App.KeyHandler { }
-
     App.Stage { }
 
     statusBar: App.StatusBar { }
+
+    Item {
+        id: keyHandler
+        Keys.onPressed: App.Actions.keyPressed(event, appWindow)
+    }
 }
