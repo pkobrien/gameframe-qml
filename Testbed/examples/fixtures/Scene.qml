@@ -4,8 +4,8 @@ import GameFrame 1.0 as GF
 GF.Scene {
     id: scene
 
-    width: 200
-    height: 200
+    width: 600
+    height: 400
 
     world: GF.World { }
 

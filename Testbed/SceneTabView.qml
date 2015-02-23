@@ -13,27 +13,33 @@ TabView {
             App.Active.world.running = false;
         }
         var tab = getTab(currentIndex);
-        var scene = tab.item;
+        var scene = tab.item.scene;
         scene.active = true;
         App.Active.scene = scene;
-        App.Active.sceneLoader = tab;
+        App.Active.sceneLoader = tab.item.sceneLoader;
     }
 
     Component {
         id: emptySceneComp
         App.EmptyScene {
-            anchors.fill: parent
+            width: 600
+            height: 400
         }
     }
 
     App.SceneTab {
-        active: true
-        sourceComponent: emptySceneComp
         title: "* Improv *"
+
+        Component.onCompleted: {
+            item.sceneLoader.sourceComponent = emptySceneComp;
+        }
     }
 
     App.SceneTab {
-        source: "./examples/fixtures/Scene.qml"
         title: "Scene.qml"
+
+        Component.onCompleted: {
+            item.sceneLoader.source = "./examples/fixtures/Scene.qml";
+        }
     }
 }
