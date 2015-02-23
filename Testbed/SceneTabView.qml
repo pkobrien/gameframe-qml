@@ -3,35 +3,27 @@ import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 TabView {
-    id: sceneTabView
 
     onCurrentIndexChanged: {
-        if (App.Active.scene) {
-            App.Active.scene.active = false;
-        }
-        if (App.Active.world) {
-            App.Active.world.running = false;
-        }
         var tab = getTab(currentIndex);
-        var scene = tab.item.scene;
-        scene.active = true;
-        App.Active.scene = scene;
-        App.Active.sceneLoader = tab.item.sceneLoader;
+        tab.selected();
     }
 
-    Component {
-        id: emptySceneComp
-        App.EmptyScene {
-            width: 600
-            height: 400
+    App.SceneTab {
+        title: "* Improv 1 *"
+
+        scroll: false
+
+        Component.onCompleted: {
+            loadEmptyScene();
         }
     }
 
     App.SceneTab {
-        title: "* Improv *"
+        title: "* Improv 2 *"
 
         Component.onCompleted: {
-            item.sceneLoader.sourceComponent = emptySceneComp;
+            loadEmptyScene();
         }
     }
 
@@ -39,7 +31,7 @@ TabView {
         title: "Scene.qml"
 
         Component.onCompleted: {
-            item.sceneLoader.source = "./examples/fixtures/Scene.qml";
+            loadSource("./examples/fixtures/Scene.qml");
         }
     }
 }
