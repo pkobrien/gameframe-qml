@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.1
 import "." 1.0 as App
 
 StatusBar {
+    id: statusBar
+
     width: parent.width
 
     RowLayout {

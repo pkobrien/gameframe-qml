@@ -3,7 +3,7 @@ import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 Tab {
-    id: tab
+    id: sceneTab
 
     active: true
 

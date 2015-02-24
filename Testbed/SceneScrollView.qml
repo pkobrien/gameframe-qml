@@ -3,6 +3,7 @@ import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 ScrollView {
+    id: sceneScrollView
 
     anchors.fill: parent
 

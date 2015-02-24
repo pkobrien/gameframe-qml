@@ -5,7 +5,7 @@ import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 QtObject {
-    id: actions
+    id: actionsSingleton
 
     property var sceneLoader: App.Active.sceneLoader
     property var world: App.Active.world
@@ -75,6 +75,6 @@ QtObject {
         worldRunningAction.shortcut = "Enter"
         worldSingleStepAction.shortcut = "Space"
         // There is currently a bug in QML when this file is a singleton whereby the shortcuts
-        // no longer work. Therefore the key handling is also defined in the KeyHandler.qml file.
+        // no longer work. Therefore the key handling is also handled in the keyPressed function.
     }
 }

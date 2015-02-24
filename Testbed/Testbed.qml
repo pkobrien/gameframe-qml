@@ -6,10 +6,10 @@ import "." 1.0 as App
 ApplicationWindow {
     id: appWindow
 
-    width: 800
-    height: 600
+    width: App.Settings.appWindow.width
+    height: App.Settings.appWindow.height
 
-    title: "QML GameFrame Testbed"
+    title: App.Settings.appWindow.title
     visible: true
 
     menuBar: App.MenuBar { }

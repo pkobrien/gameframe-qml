@@ -9,19 +9,19 @@ SplitView {
     focus: true
 
     anchors.fill: parent
-    orientation: Qt.Horizontal
+    orientation: App.Settings.stage.orientation
 
     App.SceneTabView {
         id: sceneTabView
 
-        Layout.minimumWidth: 100
+        Layout.minimumWidth: App.Settings.sceneTabView.minimumWidth
         Layout.fillWidth: true
     }
 
     App.Director {
         id: director
 
-        Layout.minimumWidth: width
+        Layout.minimumWidth: App.Settings.director.minimumWidth
     }
 
     Component.onCompleted: sceneTabView.currentIndexChanged();

@@ -50,8 +50,8 @@ Loader {
     Component {
         id: emptyScrollSceneComp
         App.EmptyScene {
-            width: 600
-            height: 400
+            width: App.Settings.emptyScene.width
+            height: App.Settings.emptyScene.height
         }
     }
 }

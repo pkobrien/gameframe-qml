@@ -6,8 +6,11 @@ import "." 1.0 as App
 Rectangle {
     id: director
 
-    width: 200
+    width: App.Settings.director.width
+
     color: "LightGray"
+
+    property var world: App.Active.world
 
     ColumnLayout {
 
@@ -18,27 +21,35 @@ Rectangle {
         }
 
         Text {
-            text: "Gravity x: " + App.Active.world.gravity.x
-        }
-
-        Slider {
-            maximumValue: 30
-            minimumValue: -30
-            updateValueWhileDragging: true
-            value: App.Active.world.gravity.x
-            onValueChanged: App.Active.world.gravity.x = value
+            text: "Initial Gravity x: " + App.Active.initialGravity.x
         }
 
         Text {
-            text: "Gravity y: " + App.Active.world.gravity.y
+            text: "Current Gravity x: " + world.gravity.x
         }
 
         Slider {
-            maximumValue: 30
-            minimumValue: -30
+            maximumValue: Math.max(App.Settings.maxGravity.x, App.Active.maxGravity.x)
+            minimumValue: Math.min(App.Settings.minGravity.x, App.Active.minGravity.x)
             updateValueWhileDragging: true
-            value: App.Active.world.gravity.y
-            onValueChanged: App.Active.world.gravity.y = value
+            value: world.gravity.x
+            onValueChanged: world.gravity.x = value
+        }
+
+        Text {
+            text: "Initial Gravity y: " + App.Active.initialGravity.y
+        }
+
+        Text {
+            text: "Current Gravity y: " + world.gravity.y
+        }
+
+        Slider {
+            maximumValue: Math.max(App.Settings.maxGravity.y, App.Active.maxGravity.y)
+            minimumValue: Math.min(App.Settings.minGravity.y, App.Active.minGravity.y)
+            updateValueWhileDragging: true
+            value: world.gravity.y
+            onValueChanged: world.gravity.y = value
         }
     }
 }

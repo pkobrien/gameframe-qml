@@ -4,9 +4,9 @@ import QtQuick.Layouts 1.1
 import "." 1.0 as App
 
 ToolBar {
-    id: toolbar
+    id: toolBar
 
-    height: 40
+    height: App.Settings.toolBar.height
     RowLayout {
         anchors.fill: parent
         ToolButton { action: App.Actions.worldDebugAction }

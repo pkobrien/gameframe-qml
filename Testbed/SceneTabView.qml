@@ -3,6 +3,7 @@ import QtQuick.Controls 1.3
 import "." 1.0 as App
 
 TabView {
+    id: sceneTabView
 
     onCurrentIndexChanged: {
         var tab = getTab(currentIndex);

@@ -2,6 +2,7 @@ import QtQuick 2.4
 import "." 1.0 as App
 
 Item {
+    id: sceneView
 
     anchors.fill: parent
 
