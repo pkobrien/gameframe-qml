@@ -6,9 +6,8 @@ import "." 1.0 as App
 SplitView {
     id: stage
 
-    focus: true
-
     anchors.fill: parent
+    focus: true
     orientation: App.Settings.stage.orientation
 
     App.SceneTabView {

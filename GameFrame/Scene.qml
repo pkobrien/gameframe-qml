@@ -6,9 +6,9 @@ Item {
     id: scene
 
     property bool active: false
+    property var debugDraw
     property string statusText
     property var world
-    property var _debugDraw
 
     signal entered()
     signal exited()
@@ -28,7 +28,7 @@ Item {
     Component.onCompleted: {
         if (world) {
             var comp = Qt.createComponent("DebugDraw.qml");
-            _debugDraw = comp.createObject(scene);
+            debugDraw = comp.createObject(scene);
         }
     }
 }

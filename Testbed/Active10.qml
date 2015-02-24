@@ -10,6 +10,7 @@ QtObject {
     property point maxGravity
     property point minGravity
 
+    property var debugDraw: scene ? scene.debugDraw : null
     property var scene: null
     property var sceneLoader: null
     property string statusText: qsTr("Welcome")
