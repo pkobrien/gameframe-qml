@@ -12,7 +12,6 @@ Loader {
     }
 
     function reload() {
-        App.Active.scene = null;
         if (source.toString() !== "") {
             var src = source;
             source = "";
