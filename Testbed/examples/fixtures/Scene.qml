@@ -7,7 +7,7 @@ GF.Scene {
     width: 600
     height: 400
 
-    world: GF.World { }
+    world: GF.World { gravity.y: 1 }
 
     Rectangle {
         id: background
@@ -30,6 +30,7 @@ GF.Scene {
         running: world.running
         repeat: true
         onTriggered: {
+            world.gravity.y += 0.1
             var ball = ballComp.createObject(scene);
             ball.x = 40 + (Math.random() * scene.width - 80);
             ball.y = 10;

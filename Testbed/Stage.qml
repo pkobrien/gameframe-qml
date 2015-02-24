@@ -6,6 +6,8 @@ import "." 1.0 as App
 SplitView {
     id: stage
 
+    focus: true
+
     anchors.fill: parent
     orientation: Qt.Horizontal
 
@@ -16,17 +18,10 @@ SplitView {
         Layout.fillWidth: true
     }
 
-    Rectangle {
+    App.Director {
         id: director
 
-        width: 200
-        color: "LightGray"
-        Layout.minimumWidth: 200
-
-        Text {
-            text: "Director"
-            anchors.centerIn: parent
-        }
+        Layout.minimumWidth: width
     }
 
     Component.onCompleted: sceneTabView.currentIndexChanged();
