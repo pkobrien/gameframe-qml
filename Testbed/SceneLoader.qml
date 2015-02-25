@@ -7,10 +7,6 @@ Loader {
 
     signal selected()
 
-    function loadEmptyScene(scroll) {
-        sourceComponent = (scroll) ? emptyScrollSceneComp : emptySceneComp;
-    }
-
     function reload() {
         if (source.toString() !== "") {
             var src = source;
@@ -37,21 +33,5 @@ Loader {
         }
         App.Active.scene = item;
         App.Active.scene.active = true;
-        App.Active.sceneLoader = sceneLoader;
-    }
-
-    Component {
-        id: emptySceneComp
-        App.EmptyScene {
-            anchors.fill: parent
-        }
-    }
-
-    Component {
-        id: emptyScrollSceneComp
-        App.EmptyScene {
-            width: App.Settings.emptyScene.width
-            height: App.Settings.emptyScene.height
-        }
     }
 }

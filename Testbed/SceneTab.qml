@@ -8,35 +8,17 @@ Tab {
     active: true
 
     property bool scroll: true
+    property string source: ""
 
     signal selected()
 
-    function loadEmptyScene() {
-        item.view.sceneLoader.loadEmptyScene(scroll);
-    }
-
-    function loadSource(sceneSource) {
-        item.view.sceneLoader.source = sceneSource;
-    }
-
-    function loadSourceComponent(sceneSourceComp) {
-        item.view.sceneLoader.sourceComponent = sceneSourceComp;
-    }
-
     onSelected: {
-        item.view.selected()
+        item.selected()
     }
 
-    Item {
+    SceneEditor {
         anchors.fill: parent
-
-        property var view
-    }
-
-    Component.onCompleted: {
-        var name = (scroll) ? "SceneScrollView.qml" : "SceneView.qml"
-        var comp = Qt.createComponent(name);
-        var view = comp.createObject(item);
-        item.view = view;
+        scroll: sceneTab.scroll
+        source: sceneTab.source
     }
 }

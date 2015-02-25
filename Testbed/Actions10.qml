@@ -7,7 +7,7 @@ import "." 1.0 as App
 QtObject {
     id: actionsSingleton
 
-    property var sceneLoader: App.Active.sceneLoader
+    property var sceneEditor: App.Active.sceneEditor
     property var world: App.Active.world
 
     property Action appQuitAction: Action {
@@ -17,10 +17,10 @@ QtObject {
     }
 
     property Action sceneReloadAction: Action {
-        enabled: (sceneLoader)
+        enabled: (sceneEditor)
         text: qsTr("Reload scene")
         tooltip: qsTr("Reload the current scene")
-        onTriggered: sceneLoader.reload();
+        onTriggered: sceneEditor.reload();
     }
 
     property Action worldDebugAction: Action {

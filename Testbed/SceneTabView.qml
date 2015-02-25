@@ -12,27 +12,15 @@ TabView {
 
     App.SceneTab {
         title: "* Improv 1 *"
-
         scroll: false
-
-        Component.onCompleted: {
-            loadEmptyScene();
-        }
     }
 
     App.SceneTab {
         title: "* Improv 2 *"
-
-        Component.onCompleted: {
-            loadEmptyScene();
-        }
     }
 
     App.SceneTab {
         title: "Scene.qml"
-
-        Component.onCompleted: {
-            loadSource("./examples/fixtures/Scene.qml");
-        }
+        source: "./examples/fixtures/Scene.qml"
     }
 }

@@ -12,7 +12,7 @@ QtObject {
 
     property var debugDraw: scene ? scene.debugDraw : null
     property var scene: null
-    property var sceneLoader: null
+    property var sceneEditor: null
     property string statusText: qsTr("Welcome")
     property var world: scene ? scene.world : null
 
