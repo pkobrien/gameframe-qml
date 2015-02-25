@@ -5,7 +5,7 @@ B2.World {
     id: world
 
     gravity: Qt.point(0, 10)
-    pixelsPerMeter: 10
+    pixelsPerMeter: 30
     running: false
 
     onPreSolve: { }
