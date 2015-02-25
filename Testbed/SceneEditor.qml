@@ -24,8 +24,8 @@ Item {
         id: sceneView
         width: sceneLoader.width + 24
         height: sceneLoader.height + 24
-        x: Math.max(0, (sceneEditor.width - width) / 2)
-        y: Math.max(0, (sceneEditor.height - height) / 2)
+        x: Math.max(0, Math.round((sceneEditor.width - width) / 2))
+        y: Math.max(0, Math.round((sceneEditor.height - height) / 2))
 
         border.color: "DarkGray"
         border.width: 1
@@ -39,11 +39,22 @@ Item {
 
         MouseArea {
             id: mouseArea
+
+            property real ppm: App.Active.world.pixelsPerMeter
+
             anchors.fill: sceneLoader
             cursorShape: Qt.PointingHandCursor
+            hoverEnabled: true
 
             onClicked: {
                 console.log("clicked", mouse.x, mouse.y);
+            }
+
+            onExited: App.Active.statusText = "";
+
+            onPositionChanged: {
+                App.Active.statusText = "Mouse @  X px: %1,  Y px: %2,   World X m: %3,  World Y m: %4".arg(
+                            mouse.x).arg(mouse.y).arg(mouse.x / ppm).arg(mouse.y / ppm);
             }
         }
     }
