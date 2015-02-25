@@ -5,9 +5,12 @@ GF.Scene {
     id: scene
 
     width: 600
-    height: 400
+    height: 500
 
-    world: GF.World { gravity.y: 1 }
+    world: GF.World {
+        gravity.y: 1
+        pixelsPerMeter: 30
+    }
 
     Rectangle {
         id: background

@@ -7,7 +7,7 @@ GF.DynamicBody {
 
     property color color: "Yellow"
     property real friction: 0.01
-    property real radius: 10
+    property real radius: 20
 
 //    angularDamping: 0.5
     objectName: "ball"
@@ -16,7 +16,7 @@ GF.DynamicBody {
     ScaleAnimator on scale {
         from: 0.1;
         to: 1;
-        duration: 2000;
+        duration: 200;
     }
 
     fixtures: B2.Circle {
