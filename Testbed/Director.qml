@@ -33,6 +33,63 @@ Rectangle {
             Layout.minimumWidth: App.Settings.director.width
             spacing: 8
 
+            RowLayout {
+                Label {
+                    text: "Pixels Per Meter: " + world.pixelsPerMeter
+                }
+                SpinBox {
+                    minimumValue: 1
+                    maximumValue: Math.max(99, world.pixelsPerMeter)
+                    value: world.pixelsPerMeter
+                    onEditingFinished: world.pixelsPerMeter = value;
+                }
+            }
+
+            RowLayout {
+                Label {
+                    text: "Position Iterations: " + world.positionIterations
+                }
+                SpinBox {
+                    minimumValue: 1
+                    maximumValue: Math.max(99, world.positionIterations)
+                    value: world.positionIterations
+                    onEditingFinished: world.positionIterations = value;
+                }
+            }
+
+            RowLayout {
+                Label {
+                    text: "Velocity Iterations: " + world.velocityIterations
+                }
+                SpinBox {
+                    minimumValue: 1
+                    maximumValue: Math.max(99, world.velocityIterations)
+                    value: world.velocityIterations
+                    onEditingFinished: world.velocityIterations = value;
+                }
+            }
+
+            Text {
+                text: "Time Step: 1/" + Math.round(1.0 / world.timeStep)
+            }
+
+            Rectangle {
+//                width: parent.width
+                height: 40
+                color: "Transparent"
+                border.width: 0
+                Layout.fillWidth: true
+                Slider {
+                    anchors.fill: parent
+                    maximumValue: 120
+                    minimumValue: 10
+                    stepSize: 1
+                    updateValueWhileDragging: true
+                    value: Math.round(1.0 / world.timeStep)
+                    onValueChanged: { console.log(value); if (value) world.timeStep = 1.0 / value; }
+                }
+            }
+
             Text {
                 text: "Initial Gravity X: " + App.Active.initialGravity.x
             }
@@ -53,7 +110,7 @@ Rectangle {
                     minimumValue: Math.min(App.Settings.minGravity.x, App.Active.minGravity.x)
                     updateValueWhileDragging: true
                     value: world.gravity.x
-                    onValueChanged: world.gravity.x = value
+                    onValueChanged: world.gravity.x = value;
                 }
             }
 
@@ -77,7 +134,7 @@ Rectangle {
                     minimumValue: Math.min(App.Settings.minGravity.y, App.Active.minGravity.y)
                     updateValueWhileDragging: true
                     value: world.gravity.y
-                    onValueChanged: world.gravity.y = value
+                    onValueChanged: world.gravity.y = value;
                 }
             }
         }
@@ -86,7 +143,7 @@ Rectangle {
     GroupBox {
         id: debugDrawGroupBox
 
-        title: "DebugDraw"
+        title: "Debug Draw"
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: worldGroupBox.bottom
@@ -102,7 +159,7 @@ Rectangle {
 
             App.DebugDrawFlagCheckBox {
                 flag: B2.DebugDraw.AABB
-                text: "AABB (Active Area Bounding Box)"
+                text: "AABB (Axis-Aligned Bounding Box)"
             }
 
             App.DebugDrawFlagCheckBox {
@@ -122,7 +179,7 @@ Rectangle {
 
             App.DebugDrawFlagCheckBox {
                 flag: B2.DebugDraw.Shape
-                text: "Shape"
+                text: "Shape Outline"
             }
         }
     }
