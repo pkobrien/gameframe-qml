@@ -19,7 +19,7 @@ QtObject {
     Binding on statusText {
         when: world
         value: { if (world) qsTr("[Debug: %1]  [Paused: %2]  [Gravity: %3]").arg(
-                 world.debug.toString()).arg((!world.running).toString()).arg(world.gravity); }
+                 scene.debug.toString()).arg((!world.running).toString()).arg(world.gravity); }
     }
 
     onGravityChanged: {

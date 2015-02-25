@@ -7,6 +7,7 @@ import "." 1.0 as App
 QtObject {
     id: actionsSingleton
 
+    property var scene: App.Active.scene
     property var sceneEditor: App.Active.sceneEditor
     property var world: App.Active.world
 
@@ -25,11 +26,11 @@ QtObject {
 
     property Action worldDebugAction: Action {
         checkable: true
-        checked: (world && world.debug)
-        enabled: (world)
+        checked: (world && scene && scene.debugAllowed && scene.debug)
+        enabled: (world && scene && scene.debugAllowed)
         text: checked ? qsTr("Hide debug visuals") : qsTr("Display debug visuals")
         tooltip: text + qsTr(" for the Box2D physics world")
-        onTriggered: world.debug = !world.debug;
+        onTriggered: scene.debug = !scene.debug;
     }
 
     property Action worldRunningAction: Action {

@@ -6,6 +6,8 @@ Item {
     id: scene
 
     property bool active: false
+    property bool debug: false
+    property bool debugAllowed: true
     property var debugDraw
     property string statusText
     property var world
@@ -26,9 +28,10 @@ Item {
     }
 
     Component.onCompleted: {
-        if (world) {
+        if (world && debugAllowed) {
             var comp = Qt.createComponent("DebugDraw.qml");
-            debugDraw = comp.createObject(scene);
+            debugDraw = comp.createObject(scene, {"world": world});
+            debugDraw.visible = Qt.binding(function() { return scene.debug; });
         }
     }
 }

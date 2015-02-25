@@ -16,7 +16,7 @@ GF.Scene {
         id: background
         anchors.fill: parent
         color: "Red"
-        visible: !world.debug
+        visible: !debug
     }
 
     GF.Boundaries { }
