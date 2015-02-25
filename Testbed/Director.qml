@@ -181,6 +181,26 @@ Rectangle {
                 flag: B2.DebugDraw.Shape
                 text: "Shape Outline"
             }
+
+            Text {
+                text: "Opacity: " + App.Active.debugDraw.opacity
+            }
+
+            Rectangle {
+//                width: parent.width
+                height: 40
+                color: "Transparent"
+                border.width: 0
+                Layout.fillWidth: true
+                Slider {
+                    anchors.fill: parent
+                    maximumValue: 1.0
+                    minimumValue: 0.0
+                    updateValueWhileDragging: true
+                    value: App.Active.debugDraw.opacity
+                    onValueChanged: App.Active.debugDraw.opacity = value;
+                }
+            }
         }
     }
 }
