@@ -31,9 +31,9 @@ GF.Scene {
         repeat: true
         onTriggered: {
             world.gravity.y += 0.1
-            var ball = ballComp.createObject(scene);
-            ball.x = (Math.random() * (scene.width - 80)) + 40;
-            ball.y = 10;
+            var x = (Math.random() * (scene.width - 80)) + 40;
+            var y = 0;
+            var ball = ballComp.createObject(scene, {"x": x, "y": y});
             count++;
             if (count === 50) running = false;
         }

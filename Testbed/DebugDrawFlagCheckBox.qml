@@ -8,7 +8,9 @@ CheckBox {
 
     property int flag
 
-    checked: (App.Active.debugDraw.flags & flag)
+    function _binding() { return (App.Active.debugDraw.flags & flag); }
+
+    checked: _binding()
 
     onClicked: {
          if (checked) {
@@ -16,6 +18,6 @@ CheckBox {
          } else {
              App.Active.debugDraw.flags &= ~flag;
          }
-         checked = Qt.binding(function() { return (App.Active.debugDraw.flags & flag); });
+         checked = Qt.binding(_binding);
     }
 }

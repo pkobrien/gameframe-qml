@@ -86,7 +86,7 @@ Rectangle {
                     stepSize: 1
                     updateValueWhileDragging: true
                     value: Math.round(1.0 / world.timeStep)
-                    onValueChanged: { console.log(value); if (value) world.timeStep = 1.0 / value; }
+                    onValueChanged: { if (value) world.timeStep = 1.0 / value; }
                 }
             }
 
