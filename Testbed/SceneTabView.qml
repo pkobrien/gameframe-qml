@@ -11,16 +11,21 @@ TabView {
     }
 
     App.SceneTab {
+        title: "Pulley"
+        source: "./examples/pulley/main.qml"
+    }
+
+    App.SceneTab {
+        title: "Balls"
+        source: "./examples/fixtures/Scene.qml"
+    }
+
+    App.SceneTab {
         title: "* Improv 1 *"
         scroll: false
     }
 
     App.SceneTab {
         title: "* Improv 2 *"
-    }
-
-    App.SceneTab {
-        title: "Scene.qml"
-        source: "./examples/fixtures/Scene.qml"
     }
 }
