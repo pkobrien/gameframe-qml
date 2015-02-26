@@ -6,9 +6,11 @@ import "." 1.0 as App
 ToolBar {
     id: toolBar
 
-    height: App.Settings.toolBar.height
+//    height: App.Settings.toolBar.height
+
     RowLayout {
         anchors.fill: parent
+        anchors.margins: spacing
         ToolButton { action: App.Actions.worldDebugAction }
         ToolButton { action: App.Actions.worldRunningAction }
         ToolButton { action: App.Actions.worldSingleStepAction }

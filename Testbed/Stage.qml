@@ -21,6 +21,7 @@ SplitView {
         id: director
 
         Layout.minimumWidth: App.Settings.director.minimumWidth
+        Layout.preferredWidth: App.Settings.director.width
     }
 
     Component.onCompleted: sceneTabView.currentIndexChanged();
