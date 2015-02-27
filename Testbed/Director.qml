@@ -11,8 +11,6 @@ Rectangle {
 
     property var world: App.Active.world
 
-    width: App.Settings.director.width
-
     ColumnLayout {
         anchors.top: parent.top
         anchors.left: parent.left

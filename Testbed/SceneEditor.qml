@@ -28,7 +28,7 @@ Item {
         y: Math.max(0, Math.round((sceneEditor.height - height) / 2))
 
         border.color: "DarkGray"
-        border.width: 1
+        border.width: sceneEditor.scroll ? 1 : 0
         color: "White"
         radius: 6
 
@@ -64,6 +64,7 @@ Item {
 
         anchors.fill: parent
         enabled: visible
+        visible: sceneEditor.scroll
     }
 
     Component {
@@ -83,7 +84,6 @@ Item {
         } else {
             sceneView.anchors.fill = sceneEditor;
             sceneLoader.anchors.fill = sceneView;
-            scrollView.visible = false;
         }
     }
 }
