@@ -28,9 +28,7 @@ Rectangle {
                 anchors.fill: parent
 
                 RowLayout {
-                    Label {
-                        text: "Pixels Per Meter: " + world.pixelsPerMeter
-                    }
+                    Label { text: "Pixels Per Meter: " + world.pixelsPerMeter }
                     SpinBox {
                         minimumValue: 1
                         maximumValue: Math.max(99, world.pixelsPerMeter)
@@ -40,9 +38,7 @@ Rectangle {
                 }
 
                 RowLayout {
-                    Label {
-                        text: "Position Iterations: " + world.positionIterations
-                    }
+                    Label { text: "Position Iterations: " + world.positionIterations }
                     SpinBox {
                         minimumValue: 1
                         maximumValue: Math.max(99, world.positionIterations)
@@ -52,9 +48,7 @@ Rectangle {
                 }
 
                 RowLayout {
-                    Label {
-                        text: "Velocity Iterations: " + world.velocityIterations
-                    }
+                    Label { text: "Velocity Iterations: " + world.velocityIterations }
                     SpinBox {
                         minimumValue: 1
                         maximumValue: Math.max(99, world.velocityIterations)
@@ -63,9 +57,7 @@ Rectangle {
                     }
                 }
 
-                Text {
-                    text: "Time Step: 1/" + Math.round(1.0 / world.timeStep)
-                }
+                Text { text: "Time Step: 1/" + Math.round(1.0 / world.timeStep) }
 
                 Rectangle {
                     height: 20
@@ -83,13 +75,9 @@ Rectangle {
                     }
                 }
 
-                Text {
-                    text: "Initial Gravity X: " + App.Active.initialGravity.x
-                }
+                Text { text: "Initial Gravity X: " + App.Active.initialGravity.x }
 
-                Text {
-                    text: "Current Gravity X: " + world.gravity.x
-                }
+                Text { text: "Current Gravity X: " + world.gravity.x }
 
                 Rectangle {
                     height: 20
@@ -106,13 +94,9 @@ Rectangle {
                     }
                 }
 
-                Text {
-                    text: "Initial Gravity Y: " + App.Active.initialGravity.y
-                }
+                Text { text: "Initial Gravity Y: " + App.Active.initialGravity.y }
 
-                Text {
-                    text: "Current Gravity Y: " + world.gravity.y
-                }
+                Text { text: "Current Gravity Y: " + world.gravity.y }
 
                 Rectangle {
                     height: 20
@@ -141,34 +125,17 @@ Rectangle {
 
                 anchors.fill: parent
 
-                App.DebugDrawFlagCheckBox {
-                    flag: B2.DebugDraw.AABB
-                    text: "AABB (Axis-Aligned Bounding Box)"
-                }
+                App.ActionCheckBox { action: App.Actions.debugDrawAABBAction }
 
-                App.DebugDrawFlagCheckBox {
-                    flag: B2.DebugDraw.CenterOfMass
-                    text: "Center Of Mass"
-                }
+                App.ActionCheckBox { action: App.Actions.debugDrawCenterOfMassAction }
 
-                App.DebugDrawFlagCheckBox {
-                    flag: B2.DebugDraw.Joint
-                    text: "Joint"
-                }
+                App.ActionCheckBox { action: App.Actions.debugDrawJointAction }
 
-                App.DebugDrawFlagCheckBox {
-                    flag: B2.DebugDraw.Pair
-                    text: "Pair"
-                }
+                App.ActionCheckBox { action: App.Actions.debugDrawPairAction }
 
-                App.DebugDrawFlagCheckBox {
-                    flag: B2.DebugDraw.Shape
-                    text: "Shape Outline"
-                }
+                App.ActionCheckBox { action: App.Actions.debugDrawShapeAction }
 
-                Text {
-                    text: "Opacity: " + App.Active.debugDraw.opacity
-                }
+                Text { text: "Opacity: " + App.Active.debugDraw.opacity }
 
                 Rectangle {
                     height: 20

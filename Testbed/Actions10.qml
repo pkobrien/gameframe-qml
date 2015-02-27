@@ -2,11 +2,14 @@ pragma Singleton
 
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import Box2D 2.0 as B2
 import "." 1.0 as App
 
 QtObject {
     id: actionsSingleton
 
+    property bool debugAllowed: world && scene && scene.debugAllowed
+    property var debugDraw: App.Active.debugDraw
     property var scene: App.Active.scene
     property var sceneEditor: App.Active.sceneEditor
     property var world: App.Active.world
@@ -15,6 +18,51 @@ QtObject {
         text: qsTr("E&xit")
         tooltip: qsTr("Exit the application")
         onTriggered: Qt.quit();
+    }
+
+    property Action debugDrawAABBAction: Action {
+        property int flag: B2.DebugDraw.AABB
+        checkable: true
+        checked: (enabled && debugDraw.flags & flag)
+        enabled: debugAllowed
+        text: qsTr("AABB (Axis-Aligned Bounding Box)")
+        onTriggered: debugDrawFlagTriggered(flag);
+    }
+
+    property Action debugDrawCenterOfMassAction: Action {
+        property int flag: B2.DebugDraw.CenterOfMass
+        checkable: true
+        checked: (enabled && debugDraw.flags & flag)
+        enabled: debugAllowed
+        text: qsTr("Center Of Mass")
+        onTriggered: debugDrawFlagTriggered(flag);
+    }
+
+    property Action debugDrawJointAction: Action {
+        property int flag: B2.DebugDraw.Joint
+        checkable: true
+        checked: (enabled && debugDraw.flags & flag)
+        enabled: debugAllowed
+        text: qsTr("Joint")
+        onTriggered: debugDrawFlagTriggered(flag);
+    }
+
+    property Action debugDrawPairAction: Action {
+        property int flag: B2.DebugDraw.Pair
+        checkable: true
+        checked: (enabled && debugDraw.flags & flag)
+        enabled: debugAllowed
+        text: qsTr("Pair")
+        onTriggered: debugDrawFlagTriggered(flag);
+    }
+
+    property Action debugDrawShapeAction: Action {
+        property int flag: B2.DebugDraw.Shape
+        checkable: true
+        checked: (enabled && debugDraw.flags & flag)
+        enabled: debugAllowed
+        text: qsTr("Shape")
+        onTriggered: debugDrawFlagTriggered(flag);
     }
 
     property Action sceneReloadAction: Action {
@@ -26,8 +74,8 @@ QtObject {
 
     property Action worldDebugAction: Action {
         checkable: true
-        checked: (world && scene && scene.debugAllowed && scene.debug)
-        enabled: (world && scene && scene.debugAllowed)
+        checked: (enabled && scene.debug)
+        enabled: debugAllowed
         text: checked ? qsTr("Hide debug visuals") : qsTr("Display debug visuals")
         tooltip: text + qsTr(" for the Box2D physics world")
         onTriggered: scene.debug = !scene.debug;
@@ -47,6 +95,14 @@ QtObject {
         text: qsTr("Single step")
         tooltip: qsTr("Run a single step of the Box2D physics world")
         onTriggered: { world.running = false; world.step(); }
+    }
+
+    function debugDrawFlagTriggered(flag) {
+        if (debugDraw.flags & flag) {
+            debugDraw.flags &= ~flag;
+        } else {
+            debugDraw.flags |= flag;
+        }
     }
 
     function keyPressed(event, source) {

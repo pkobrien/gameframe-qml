@@ -18,4 +18,13 @@ MenuBar {
         MenuSeparator { }
         MenuItem { action: App.Actions.sceneReloadAction }
     }
+
+    Menu {
+        title: "&Debug Draw"
+        MenuItem { action: App.Actions.debugDrawAABBAction }
+        MenuItem { action: App.Actions.debugDrawCenterOfMassAction }
+        MenuItem { action: App.Actions.debugDrawJointAction }
+        MenuItem { action: App.Actions.debugDrawPairAction }
+        MenuItem { action: App.Actions.debugDrawShapeAction }
+    }
 }
